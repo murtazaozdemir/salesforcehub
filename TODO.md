@@ -35,5 +35,9 @@ pasting it into each page.
       (until then the form says it isn't connected yet). Decide how you'll read the
       messages (KV dashboard, or forward them by email).
 - [ ] Xhibit: once it has a domain and prices, link to them from the Xhibit section.
-- [ ] Cloudflare Pages project: connect `murtazaozdemir/salesforcehub` (build output
-      directory `public`, no build command), then attach the custom domain salesforcehub.us.
+- [x] Cloudflare Pages project `salesforcehub` (build output `public`, no build command),
+      live at salesforcehub-e9g.pages.dev. Custom domains salesforcehub.us and
+      www.salesforcehub.us attached 2026-10-04; the old A record to the Namecheap
+      server (162.0.209.106) was replaced. Mail (Google MX) and SPF were left alone.
+- [ ] Old Namecheap hosting: the site no longer uses it. Cancel it if nothing else
+      lives there, and then drop its IPs from the SPF record.

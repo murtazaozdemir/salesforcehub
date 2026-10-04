@@ -32,7 +32,9 @@ Run locally (serves `public/` plus `functions/`):
 npx wrangler pages dev public --port 8799
 ```
 
-Pages project settings: framework preset "None", build command empty, build output directory `public`.
+Cloudflare Pages project `salesforcehub` (framework preset "None", build command empty, build output directory
+`public`). Every push to `main` deploys to production at salesforcehub.us (also www and salesforcehub-e9g.pages.dev).
+After a push, check the live site actually changed rather than trusting the push.
 
 ## Copy rules for the apps
 
