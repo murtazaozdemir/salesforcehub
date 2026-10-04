@@ -6,16 +6,9 @@ Salesforce Hub LLC (Clifton, NJ) has been registered for about three years and t
 name stays **for now**. Before charging companies for the apps, decide whether to
 rename.
 
-Why it's on the list:
-- Salesforce's trademark guidelines bar using "Salesforce", or anything confusingly
-  similar, in company, product, website or domain names without written permission,
-  and Salesforce has made companies rename before:
-  https://www.salesforce.com/company/legal/tmcusageguidelines/
-- The business no longer does any Salesforce CRM work (scope changed 2026-10-03:
-  it develops and sells its own apps), so the name no longer even describes a
-  connection to Salesforce.
-- Salesforce runs its own "Salesforce Hub" content pages (salesforce.com/…/hub/sales),
-  which makes confusion more likely.
+Why it's on the list: the name contains another company's trademark, and Salesforce
+Hub LLC has nothing to do with that company or its CRM. The business develops and
+sells its own apps.
 
 A rename would touch: the LLC filing, the salesforcehub.us domain, this repo name,
 the site copy, and the GitHub repo `murtazaozdemir/salesforcehub`. Worth a quick
