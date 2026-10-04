@@ -22,15 +22,17 @@ Wording used on the site:
 > endorsed by or sponsored by Salesforce, Inc. Salesforce is a trademark of
 > Salesforce, Inc.
 
-It's in the footer of every page (`public/index.html` and `public/404.html`). If the
-site grows beyond these two pages, move the footer into one shared include rather than
-pasting it into each page.
+It's in the footer of every page. The footer has one home, `functions/_middleware.js`,
+which adds it to each page as it's served.
 
 ## Site
 
 - [x] Rewrite the site as the company's app showcase (DataVot and Xhibit first). Done 2026-10-03.
-- [ ] Confirm the status labels: SysXray, StorageVisual and Dataly are shown as "Beta",
-      AppVitrine as "Live", Xhibit as "By arrangement".
+- [x] Home page narrowed to DataVot, Xhibit, AI Store Audit, StorageVisual and SEOnostics
+      (2026-10-04). Dataly, SysXray and AppVitrine moved to the unlinked `/parked` page.
+- [ ] Confirm the status labels: StorageVisual "Beta", SEOnostics "Live", Xhibit "By arrangement".
+- [ ] SEOnostics has no logo yet; it shows a letter tile. Add its icon to
+      `public/images/apps/` when one exists.
 - [ ] Contact form: create a KV namespace and bind it to the Pages project as `CONTACT`
       (until then the form says it isn't connected yet). Decide how you'll read the
       messages (KV dashboard, or forward them by email).

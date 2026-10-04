@@ -4,10 +4,6 @@
   // so no-JS visitors never see rows stuck at opacity 0.
   document.documentElement.classList.add("js");
 
-  document.querySelectorAll("[data-year]").forEach(function (el) {
-    el.textContent = String(new Date().getFullYear());
-  });
-
   var form = document.querySelector(".signup-form");
   if (!form) return;
   var status = form.querySelector(".form-status");

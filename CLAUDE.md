@@ -25,6 +25,11 @@ Static site with no build step, deployed on Cloudflare Pages.
 - `functions/api/contact.js` is a Pages Function behind the contact form. It writes to a KV namespace bound as
   `CONTACT`; without that binding it returns 503 with a clear message rather than pretending to succeed.
 - `public/404.html` exists so unknown URLs get a real 404 instead of Pages' single-page-app fallback.
+- `functions/_middleware.js` holds **the only copy of the footer** (including the no-affiliation statement) and
+  injects it into `<footer data-site-footer>` on every HTML page at the edge. Pages carry only the empty slot; edit
+  the footer there, never in a page. Opening a page file directly without `wrangler pages dev` shows no footer.
+- `public/parked.html` (served at `/parked`): apps set aside for later (Dataly, SysXray, AppVitrine). Not linked
+  from the site and marked noindex.
 
 Run locally (serves `public/` plus `functions/`):
 
@@ -57,3 +62,8 @@ if an app rebrands.
 Follow `/Users/Shared/reusable/APP-RULES.md` (Rule 1: build once and reuse; Rule 2: no inline styles). Colour tokens
 in `public/styles.css` use the same names as the shared theme kit (`/Users/Shared/reusable/PortableThemes/html-css/`).
 Light and dark mode follow the visitor's system setting.
+
+## What's on the home page
+
+Focus apps, in this order: DataVot, Xhibit, AI Store Audit, StorageVisual, SEOnostics (seonostics.com,
+`/Users/Shared/SEOnostics`). Everything else goes on `/parked` until Murtaza says otherwise.
