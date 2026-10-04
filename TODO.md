@@ -37,7 +37,10 @@ which adds it to each page as it's served.
 - [ ] Contact form: create a KV namespace and bind it to the Pages project as `CONTACT`
       (until then the form says it isn't connected yet). Decide how you'll read the
       messages (KV dashboard, or forward them by email).
-- [ ] Xhibit: once it has a domain and prices, link to them from the Xhibit section.
+- [x] Xhibit page at salesforcehub.us/xhibit (2026-10-04), copy taken from Xhibit's brochure.
+- [ ] Xhibit: decide whether to show prices on /xhibit (they exist in Xhibit's Pricing sheet), and add the
+      "collected ethically" / confidentiality section once those promises are confirmed.
+- [ ] Xhibit: when it gets its own domain, add `/xhibit  https://<new domain>  301` to `public/_redirects`.
 - [x] Cloudflare Pages project `salesforcehub` (build output `public`, no build command),
       live at salesforcehub-e9g.pages.dev. Custom domains salesforcehub.us and
       www.salesforcehub.us attached 2026-10-04; the old A record to the Namecheap

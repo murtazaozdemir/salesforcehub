@@ -6,6 +6,12 @@
 
   var form = document.querySelector(".signup-form");
   if (!form) return;
+
+  // Links like /?about=xhibit#contact arrive with that app already chosen.
+  var about = new URLSearchParams(location.search).get("about");
+  if (about && form.elements.app.querySelector('option[value="' + about.replace(/[^a-z-]/g, "") + '"]')) {
+    form.elements.app.value = about;
+  }
   var status = form.querySelector(".form-status");
   var button = form.querySelector("button[type=submit]");
 

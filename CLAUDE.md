@@ -25,9 +25,12 @@ Static site with no build step, deployed on Cloudflare Pages.
 - `functions/api/contact.js` is a Pages Function behind the contact form. It writes to a KV namespace bound as
   `CONTACT`; without that binding it returns 503 with a clear message rather than pretending to succeed.
 - `public/404.html` exists so unknown URLs get a real 404 instead of Pages' single-page-app fallback.
-- `functions/_middleware.js` holds **the only copy of the footer** (including the no-affiliation statement) and
-  injects it into `<footer data-site-footer>` on every HTML page at the edge. Pages carry only the empty slot; edit
-  the footer there, never in a page. Opening a page file directly without `wrangler pages dev` shows no footer.
+- `functions/_middleware.js` holds **the only copies** of the header (nav), the footer (with the no-affiliation
+  statement) and the Xhibit disclaimer. It fills `<header data-site-header>`, `<footer data-site-footer>` and
+  `<… data-xhibit-disclaimer>` on every HTML page at the edge. Pages carry only the empty slots; edit the text there,
+  never in a page. Opening a page file directly without `wrangler pages dev` shows none of them.
+- `public/xhibit.html` (served at `/xhibit`): the full Xhibit page. Its "Ask about a matter" links go to the one
+  contact form on the home page as `/?about=xhibit#contact`, which `site.js` pre-selects.
 - `public/parked.html` (served at `/parked`): apps set aside for later (StorageVisual, Dataly, SysXray, AppVitrine). Not linked
   from the site and marked noindex.
 
@@ -52,7 +55,10 @@ copy prices onto this site; link to the app's own pricing page instead, so there
   `webui/MARKETING-TODO.md`. Never say "court-ready", "guaranteed admissible" or "in 60 seconds". Always keep the
   disclaimers: not a law firm, no legal advice, admissibility is for the court, it shows what an account posted not
   who typed it, not affiliated with X Corp. Don't promise deletion at the end of a matter, and don't advertise
-  AI sentiment or topic labels.
+  AI sentiment or topic labels. Xhibit's banned words are listed in `webui/tests/test_marketing.py`; check
+  `/xhibit` against them after any copy change. Not on the site yet, on purpose: prices (they live in Xhibit's
+  Pricing sheet), ongoing monitoring (undecided), and the "collected ethically" and "never shared outside the matter"
+  promises (both still unconfirmed in `webui/MARKETING-TODO.md`).
 
 Icons in `public/images/apps/` and the DataVot screenshot are copies from those repos; refresh them from the source
 if an app rebrands.
