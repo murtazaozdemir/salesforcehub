@@ -30,7 +30,8 @@ which adds it to each page as it's served.
 - [x] Rewrite the site as the company's app showcase (DataVot and Xhibit first). Done 2026-10-03.
 - [x] Home page narrowed to DataVot, Xhibit, AI Store Audit, StorageVisual and SEOnostics
       (2026-10-04). Dataly, SysXray and AppVitrine moved to the unlinked `/parked` page.
-- [ ] Confirm the status labels: StorageVisual "Beta", SEOnostics "Live", Xhibit "By arrangement".
+- [x] StorageVisual moved to `/parked` too (2026-10-04).
+- [ ] Confirm the status labels: SEOnostics "Live", Xhibit "By arrangement".
 - [ ] SEOnostics has no logo yet; it shows a letter tile. Add its icon to
       `public/images/apps/` when one exists.
 - [ ] Contact form: create a KV namespace and bind it to the Pages project as `CONTACT`
