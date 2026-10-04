@@ -1,2 +1,8 @@
 # Old Namecheap/cPanel error page that browsers may have cached from before the move.
 /cgi-sys/*  /  301
+
+# ExhibitProof (formerly Xhibit) has its own site. Owned by the xhibit session.
+/exhibitproof   https://exhibitproof.com  301
+/exhibitproof/  https://exhibitproof.com  301
+/xhibit         https://exhibitproof.com  301
+/xhibit/        https://exhibitproof.com  301

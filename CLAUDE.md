@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 The company website for **Salesforce Hub LLC** (Clifton, NJ), at salesforcehub.us. The company builds and sells its
-own apps; the site is a showcase for them, led by **DataVot** and **Xhibit**. Repo: `murtazaozdemir/salesforcehub`
+own apps; the site is a showcase for them, led by **DataVot** and **ExhibitProof** (formerly Xhibit). Repo: `murtazaozdemir/salesforcehub`
 (public).
 
 **The company does no Salesforce CRM work.** Never describe or promote Salesforce implementation, consulting or org
@@ -26,11 +26,12 @@ Static site with no build step, deployed on Cloudflare Pages.
   `CONTACT`; without that binding it returns 503 with a clear message rather than pretending to succeed.
 - `public/404.html` exists so unknown URLs get a real 404 instead of Pages' single-page-app fallback.
 - `functions/_middleware.js` holds **the only copies** of the header (nav), the footer (with the no-affiliation
-  statement) and the Xhibit disclaimer. It fills `<header data-site-header>`, `<footer data-site-footer>` and
+  statement) and the ExhibitProof disclaimer. It fills `<header data-site-header>`, `<footer data-site-footer>` and
   `<… data-xhibit-disclaimer>` on every HTML page at the edge. Pages carry only the empty slots; edit the text there,
   never in a page. Opening a page file directly without `wrangler pages dev` shows none of them.
-- `public/xhibit.html` (served at `/xhibit`): the full Xhibit page. Its "Ask about a matter" links go to the one
-  contact form on the home page as `/?about=xhibit#contact`, which `site.js` pre-selects.
+- ExhibitProof has its own site, **exhibitproof.com** (built from `/Users/Shared/xhibit`, owned by the xhibit
+  session). Here it is only the home-page section, the header link, the `XHIBIT_DISCLAIMER` text and `public/_redirects`
+  lines sending `/exhibitproof` and the old `/xhibit` to exhibitproof.com. There is no ExhibitProof page in `public/`.
 - `public/parked.html` (served at `/parked`): apps set aside for later (StorageVisual, Dataly, SysXray, AppVitrine). Not linked
   from the site and marked noindex.
 
@@ -51,14 +52,12 @@ copy prices onto this site; link to the app's own pricing page instead, so there
 
 - **DataVot** (`/Users/Shared/datavot`, live at datavot.com): NJSLA dashboards for New Jersey schools. Don't claim
   SOC 2 or ISO certification.
-- **Xhibit** (`/Users/Shared/xhibit`, not public, no domain yet): its rules live in `webui/marketing.py` and
-  `webui/MARKETING-TODO.md`. Never say "court-ready", "guaranteed admissible" or "in 60 seconds". Always keep the
-  disclaimers: not a law firm, no legal advice, admissibility is for the court, it shows what an account posted not
-  who typed it, not affiliated with X Corp. Don't promise deletion at the end of a matter, and don't advertise
-  AI sentiment or topic labels. Xhibit's banned words are listed in `webui/tests/test_marketing.py`; check
-  `/xhibit` against them after any copy change. Not on the site yet, on purpose: prices (they live in Xhibit's
-  Pricing sheet), ongoing monitoring (undecided), and the "collected ethically" and "never shared outside the matter"
-  promises (both still unconfirmed in `webui/MARKETING-TODO.md`).
+- **ExhibitProof** (formerly Xhibit; `/Users/Shared/xhibit`, live at exhibitproof.com): its rules live in
+  `webui/marketing.py` and `webui/MARKETING-TODO.md`. Never say "court-ready", "guaranteed admissible" or "in 60
+  seconds". Always keep the disclaimers: not a law firm, no legal advice, admissibility is for the court, it shows what
+  an account posted not who typed it, not affiliated with X Corp. Don't promise deletion at the end of a matter, and
+  don't advertise AI sentiment or topic labels. Banned words: `BANNED_WORDS` in `webui/marketing.py`. Prices live on
+  exhibitproof.com/pricing; link there rather than copying them.
 
 Icons in `public/images/apps/` and the DataVot screenshot are copies from those repos; refresh them from the source
 if an app rebrands.
@@ -71,5 +70,5 @@ Light and dark mode follow the visitor's system setting.
 
 ## What's on the home page
 
-Focus apps, in this order: DataVot, Xhibit, AI Store Audit, SEOnostics (seonostics.com,
+Focus apps, in this order: DataVot, ExhibitProof, AI Store Audit, SEOnostics (seonostics.com,
 `/Users/Shared/SEOnostics`). Everything else goes on `/parked` until Murtaza says otherwise.

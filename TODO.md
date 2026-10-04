@@ -38,9 +38,8 @@ which adds it to each page as it's served.
       (until then the form says it isn't connected yet). Decide how you'll read the
       messages (KV dashboard, or forward them by email).
 - [x] Xhibit page at salesforcehub.us/xhibit (2026-10-04), copy taken from Xhibit's brochure.
-- [ ] Xhibit: decide whether to show prices on /xhibit (they exist in Xhibit's Pricing sheet), and add the
-      "collected ethically" / confidentiality section once those promises are confirmed.
-- [ ] Xhibit: when it gets its own domain, add `/xhibit  https://<new domain>  301` to `public/_redirects`.
+- [x] Xhibit renamed ExhibitProof and moved to its own site, exhibitproof.com (2026-10-04, xhibit session):
+  /exhibitproof and /xhibit 301 there; the /xhibit page was removed. Prices are public on exhibitproof.com/pricing.
 - [x] Cloudflare Pages project `salesforcehub` (build output `public`, no build command),
       live at salesforcehub-e9g.pages.dev. Custom domains salesforcehub.us and
       www.salesforcehub.us attached 2026-10-04; the old A record to the Namecheap

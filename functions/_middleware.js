@@ -3,14 +3,14 @@
 // every page — each live in exactly one place. Pages only carry empty slots:
 //   <header data-site-header></header>   (optional; pages without it get none)
 //   <footer data-site-footer></footer>
-//   <p data-xhibit-disclaimer></p>       (wherever Xhibit is described)
+//   <p data-xhibit-disclaimer></p>       (wherever ExhibitProof is described)
 //
 // These are the only copies. Edit them here, never in a page.
 
 const NAV = [
   { href: "/#apps", label: "Apps" },
   { href: "/#datavot", label: "DataVot" },
-  { href: "/xhibit", label: "Xhibit", path: "/xhibit" },
+  { href: "/exhibitproof", label: "ExhibitProof" },
   { href: "/#about", label: "About" },
 ];
 
@@ -43,7 +43,7 @@ const FOOTER = (year) => `
 const XHIBIT_DISCLAIMER =
   "Captures use only what a standard signed-in X account can see, through the ordinary X website. " +
   "Salesforce Hub LLC is not a law firm and doesn't give legal advice; whether evidence is admissible is always " +
-  "for the court to decide. Xhibit shows what an account posted, not who typed it. " +
+  "for the court to decide. ExhibitProof shows what an account posted, not who typed it. " +
   "Not affiliated with or endorsed by X Corp. \u201cX\u201d is a trademark of X Corp.";
 
 export async function onRequest({ request, next }) {
@@ -51,7 +51,7 @@ export async function onRequest({ request, next }) {
   const type = response.headers.get("Content-Type") || "";
   if (!type.includes("text/html")) return response;
 
-  // "/xhibit/" and "/xhibit" are the same page.
+  // "/page/" and "/page" are the same page.
   const path = new URL(request.url).pathname.replace(/\/+$/, "") || "/";
   const header = HEADER(path);
   const footer = FOOTER(new Date().getUTCFullYear());
