@@ -1,0 +1,2 @@
+# Old Namecheap/cPanel error page that browsers may have cached from before the move.
+/cgi-sys/*  /  301
