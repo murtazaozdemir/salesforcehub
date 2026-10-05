@@ -66,21 +66,31 @@
     <section id="contact" class="split wrap" aria-labelledby="contact-title">
       <div class="split-head">
         <h2 id="contact-title">Get in touch</h2>
-        <p>Questions about an app, a school license or an ExhibitProof matter? Leave your email and we'll reply.</p>
+        <p>Questions about one of our apps? Leave your email and we'll reply.</p>
       </div>
       <form class="signup-form" action="/api/contact" method="post" novalidate>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
-        <label for="app">About</label>
-        <select id="app" name="app">
-          <option value="datavot">DataVot</option>
-          <option value="xhibit">ExhibitProof</option>
-          <option value="other">Another app, or something else</option>
-        </select>
-        <label for="message">Message <span class="optional">(optional)</span></label>
-        <textarea id="message" name="message" rows="4" maxlength="2000"></textarea>
-        <button class="button" type="submit">Send message</button>
-        <p class="form-status" role="status" aria-live="polite"></p>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="app">About</label>
+          <select id="app" name="app">
+            <option value="datavot">DataVot</option>
+            <option value="xhibit">ExhibitProof</option>
+            <option value="aistoreaudit">AI Store Audit</option>
+            <option value="seonostics">SEOnostics</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="field field--wide">
+          <label for="message">Message <span class="optional">(optional)</span></label>
+          <textarea id="message" name="message" rows="3" maxlength="2000"></textarea>
+        </div>
+        <div class="field--wide form-actions">
+          <button class="button" type="submit">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
       </form>
     </section>
   </main>

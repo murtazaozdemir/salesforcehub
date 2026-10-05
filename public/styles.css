@@ -308,20 +308,19 @@ img { max-width: 100%; height: auto; display: block; }
 .split-body p { color: var(--ink-muted); }
 .split-body .statement { color: var(--ink); font-size: 1.125rem; line-height: 1.55; text-wrap: pretty; }
 @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .signup-form { grid-template-columns: 1fr; } }
 
 /* ── Contact form ─────────────────────────────────────────────────────── */
 
 .signup-form {
   display: grid;
-  gap: var(--space-1);
-  max-width: 520px;
-  padding: 1.5rem;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-m);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  max-width: 560px;
 }
-.signup-form label { font-weight: 600; font-size: 0.875rem; margin-top: var(--space-1); }
-.signup-form label:first-child { margin-top: 0; }
+.field { display: grid; gap: 0.35rem; }
+.field--wide { grid-column: 1 / -1; }
+.signup-form label { font-weight: 600; font-size: 0.875rem; }
 .signup-form .optional { font-weight: 400; color: var(--ink-faint); }
 .signup-form input,
 .signup-form select,
@@ -346,8 +345,8 @@ img { max-width: 100%; height: auto; display: block; }
 .signup-form :is(input, select, textarea):hover { border-color: var(--ink-faint); }
 .signup-form textarea { resize: vertical; }
 .signup-form :is(input, select, textarea):focus-visible { outline-offset: 0; border-color: var(--focus); }
-.signup-form .button { margin-top: var(--space-2); justify-self: start; }
-.form-status { min-height: 1.6em; font-size: 0.9375rem; }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); }
+.form-status { font-size: 0.875rem; }
 .form-status.is-error { color: var(--error); }
 .form-status.is-ok { font-weight: 700; }
 

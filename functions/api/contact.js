@@ -5,7 +5,13 @@
 // salesforcehub-mailer Worker (MAILER service binding, see mailer/); the KV copy
 // is the record, so a failed email is logged rather than shown to the visitor.
 
-const APPS = { datavot: "DataVot", xhibit: "ExhibitProof", other: "Another app, or something else" };
+const APPS = {
+  datavot: "DataVot",
+  xhibit: "ExhibitProof",
+  aistoreaudit: "AI Store Audit",
+  seonostics: "SEOnostics",
+  other: "Something else",
+};
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function onRequestPost({ request, env, waitUntil }) {
