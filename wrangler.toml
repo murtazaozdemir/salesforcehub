@@ -1,0 +1,10 @@
+# Cloudflare Pages settings for salesforcehub.us. With this file in the repo, these settings
+# (not the dashboard) define the project's bindings.
+name = "salesforcehub"
+pages_build_output_dir = "public"
+compatibility_date = "2026-10-04"
+
+# Contact form messages (functions/api/contact.js). KV namespace "salesforcehub-contact".
+[[kv_namespaces]]
+binding = "CONTACT"
+id = "9c5f0a6f0172453abed5b959840e1de3"

@@ -34,9 +34,10 @@ which adds it to each page as it's served.
 - [ ] Confirm the status labels: SEOnostics "Live", Xhibit "By arrangement".
 - [ ] SEOnostics has no logo yet; it shows a letter tile. Add its icon to
       `public/images/apps/` when one exists.
-- [ ] Contact form: create a KV namespace and bind it to the Pages project as `CONTACT`
-      (until then the form says it isn't connected yet). Decide how you'll read the
-      messages (KV dashboard, or forward them by email).
+- [x] Contact form connected (2026-10-04): KV namespace `salesforcehub-contact` bound as `CONTACT`
+      in `wrangler.toml`.
+- [ ] Contact form: decide how you'll read the messages. Today they only land in KV (Cloudflare
+      dashboard → Storage & databases → KV → salesforcehub-contact); nothing notifies you.
 - [x] Xhibit page at salesforcehub.us/xhibit (2026-10-04), copy taken from Xhibit's brochure.
 - [x] Xhibit renamed ExhibitProof and moved to its own site, exhibitproof.com (2026-10-04, xhibit session):
   /exhibitproof and /xhibit 301 there; the /xhibit page was removed. Prices are public on exhibitproof.com/pricing.

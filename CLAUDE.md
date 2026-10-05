@@ -23,7 +23,10 @@ Static site with no build step, deployed on Cloudflare Pages.
 
 - `public/` is the Pages build output directory (the only thing served). Keep notes like `TODO.md` outside it.
 - `functions/api/contact.js` is a Pages Function behind the contact form. It writes to a KV namespace bound as
-  `CONTACT`; without that binding it returns 503 with a clear message rather than pretending to succeed.
+  `CONTACT` (namespace `salesforcehub-contact`); without that binding it returns 503 with a clear message rather than
+  pretending to succeed.
+- `wrangler.toml` holds the Pages project's settings and bindings. With it in the repo the dashboard can't edit
+  bindings; change them here.
 - `public/404.html` exists so unknown URLs get a real 404 instead of Pages' single-page-app fallback.
 - `functions/_middleware.js` holds **the only copies** of the header (nav), the footer (with the no-affiliation
   statement) and the ExhibitProof disclaimer. It fills `<header data-site-header>`, `<footer data-site-footer>` and
