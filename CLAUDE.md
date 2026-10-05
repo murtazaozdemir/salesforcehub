@@ -32,7 +32,7 @@ Static site with no build step, deployed on Cloudflare Pages.
   statement) and the ExhibitProof disclaimer. It fills `<header data-site-header>`, `<footer data-site-footer>` and
   `<… data-xhibit-disclaimer>` on every HTML page at the edge. Pages carry only the empty slots; edit the text there,
   never in a page. Opening a page file directly without `wrangler pages dev` shows none of them.
-- ExhibitProof has its own site, **exhibitproof.com** (built from `/Users/Shared/xhibit`, owned by the xhibit
+- ExhibitProof has its own site, **exhibitproof.com** (built from `/Users/Shared/exhibitproof`, owned by the ExhibitProof
   session). Here it is only the home-page section, the header link, the `XHIBIT_DISCLAIMER` text and `public/_redirects`
   lines sending `/exhibitproof` and the old `/xhibit` to exhibitproof.com. There is no ExhibitProof page in `public/`.
 - `public/parked.html` (served at `/parked`): apps set aside for later (StorageVisual, Dataly, SysXray, AppVitrine). Not linked
@@ -55,7 +55,7 @@ copy prices onto this site; link to the app's own pricing page instead, so there
 
 - **DataVot** (`/Users/Shared/datavot`, live at datavot.com): NJSLA dashboards for New Jersey schools. Don't claim
   SOC 2 or ISO certification.
-- **ExhibitProof** (formerly Xhibit; `/Users/Shared/xhibit`, live at exhibitproof.com): its rules live in
+- **ExhibitProof** (`/Users/Shared/exhibitproof`, live at exhibitproof.com): its rules live in
   `webui/marketing.py` and `webui/MARKETING-TODO.md`. Never say "court-ready", "guaranteed admissible" or "in 60
   seconds". Always keep the disclaimers: not a law firm, no legal advice, admissibility is for the court, it shows what
   an account posted not who typed it, not affiliated with X Corp. Don't promise deletion at the end of a matter, and
