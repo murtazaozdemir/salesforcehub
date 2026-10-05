@@ -54,6 +54,10 @@ After a push, check the live site actually changed rather than trusting the push
 
 ## Copy rules for the apps
 
+**Keep each app to one short line plus a link to its own site.** Every app has its own site, which is the one place
+for features, screenshots, pricing and details. Repeating them here means updating two places, so don't add feature
+lists, numbers, screenshots or sample output to this site.
+
 App facts come from each app's own repo under `/Users/Shared/`; check there before changing a description. Don't
 copy prices onto this site; link to the app's own pricing page instead, so there is one source of truth.
 
@@ -66,7 +70,7 @@ copy prices onto this site; link to the app's own pricing page instead, so there
   don't advertise AI sentiment or topic labels. Banned words: `BANNED_WORDS` in `webui/marketing.py`. Prices live on
   exhibitproof.com/pricing; link there rather than copying them.
 
-Icons in `public/images/apps/` and the DataVot screenshot are copies from those repos; refresh them from the source
+Icons in `public/images/apps/` are copies from those repos; refresh them from the source
 if an app rebrands.
 
 ## Styling
