@@ -42,6 +42,13 @@ which adds it to each page as it's served.
       Mail sent from ozdemir@salesforcehub.us through Google fails it: the root SPF lists only the old
       Namecheap IPs, and there's no Google DKIM key. Set it to `p=none` now; later add
       `include:_spf.google.com` to SPF and turn on DKIM in Google Admin, then tighten DMARC.
+- [ ] Confirm the first contact form email arrived: test sent 2026-10-05 03:46 UTC, from
+      noreply@salesforcehub.us to murtazaozdemir@gmail.com, subject "Contact form: Another app, or
+      something else (deploy-check@example.com)". Check Spam too. If it never came, read the mailer's
+      logs (`cd mailer && npx wrangler tail`, then send another test).
+- [ ] The exhibitproof.com contact form seems to write into this site's KV namespace
+      (`salesforcehub-contact`): a test entry from the ExhibitProof session (2026-10-05 03:43 UTC) is
+      there. Decide whether ExhibitProof should have its own namespace, and delete that test entry.
 - [x] Xhibit page at salesforcehub.us/xhibit (2026-10-04), copy taken from Xhibit's brochure.
 - [x] Xhibit renamed ExhibitProof and moved to its own site, exhibitproof.com (2026-10-04, xhibit session):
   /exhibitproof and /xhibit 301 there; the /xhibit page was removed. Prices are public on exhibitproof.com/pricing.
