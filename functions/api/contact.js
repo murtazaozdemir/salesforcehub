@@ -1,12 +1,14 @@
 // Cloudflare Pages Function: POST /api/contact
-// Stores each message in the KV namespace bound as CONTACT (Pages project →
-// Settings → Bindings). Until that binding exists the form answers 503 with a
-// clear message instead of pretending it worked.
+// Stores each message in the KV namespace bound as CONTACT (see wrangler.toml).
+// Until that binding exists the form answers 503 with a clear message instead
+// of pretending it worked. Each stored message is also emailed through the
+// salesforcehub-mailer Worker (MAILER service binding, see mailer/); the KV copy
+// is the record, so a failed email is logged rather than shown to the visitor.
 
-const APPS = new Set(["datavot", "xhibit", "other"]);
+const APPS = { datavot: "DataVot", xhibit: "ExhibitProof", other: "Another app, or something else" };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   const wantsJson = (request.headers.get("Accept") || "").includes("application/json");
 
   let form;
@@ -27,15 +29,27 @@ export async function onRequestPost({ request, env }) {
     return reply(request, wantsJson, 503, "The contact form isn't connected yet. Please try again later.");
   }
 
-  const receivedAt = new Date().toISOString();
-  await env.CONTACT.put(`${receivedAt}:${crypto.randomUUID()}`, JSON.stringify({
-    email,
-    app: APPS.has(app) ? app : "other",
-    message,
-    receivedAt,
-  }));
+  const entry = { email, app: Object.hasOwn(APPS, app) ? app : "other", message, receivedAt: new Date().toISOString() };
+  await env.CONTACT.put(`${entry.receivedAt}:${crypto.randomUUID()}`, JSON.stringify(entry));
+  waitUntil(notify(env, entry));
 
   return reply(request, wantsJson, 200, "Message sent. We'll reply by email.");
+}
+
+async function notify(env, entry) {
+  if (!env.MAILER) {
+    console.warn("contact: message stored but not emailed (MAILER binding missing)");
+    return;
+  }
+  try {
+    const res = await env.MAILER.fetch("https://mailer/", {
+      method: "POST",
+      body: JSON.stringify({ ...entry, app: APPS[entry.app] }),
+    });
+    if (!res.ok) console.error(`contact: email failed: ${await res.text()}`);
+  } catch (err) {
+    console.error(`contact: mailer unreachable: ${err.message}`);
+  }
 }
 
 function reply(request, wantsJson, status, message) {

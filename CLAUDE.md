@@ -24,7 +24,11 @@ Static site with no build step, deployed on Cloudflare Pages.
 - `public/` is the Pages build output directory (the only thing served). Keep notes like `TODO.md` outside it.
 - `functions/api/contact.js` is a Pages Function behind the contact form. It writes to a KV namespace bound as
   `CONTACT` (namespace `salesforcehub-contact`); without that binding it returns 503 with a clear message rather than
-  pretending to succeed.
+  pretending to succeed. It then emails the message through the **`salesforcehub-mailer` Worker** (`mailer/`, service
+  binding `MAILER`), because Pages can't hold a `send_email` binding. The mailer has no public URL, sends as
+  `noreply@salesforcehub.us` and delivers to its secret `CONTACT_TO` (a verified address; kept out of this public
+  repo). Pushing to `main` does **not** deploy the mailer: after editing `mailer/`, run `cd mailer && npx wrangler
+  deploy`.
 - `wrangler.toml` holds the Pages project's settings and bindings. With it in the repo the dashboard can't edit
   bindings; change them here.
 - `public/404.html` exists so unknown URLs get a real 404 instead of Pages' single-page-app fallback.

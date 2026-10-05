@@ -1,0 +1,14 @@
+# salesforcehub-mailer: emails contact form messages for salesforcehub.us. Pages Functions can't
+# hold a send_email binding, so the site reaches this Worker through a service binding (MAILER).
+# It has no public URL. Deploy with: cd mailer && npx wrangler deploy
+name = "salesforcehub-mailer"
+main = "index.js"
+compatibility_date = "2026-10-04"
+workers_dev = false
+preview_urls = false
+
+# The recipient is the Worker secret CONTACT_TO (kept out of this public repo); it must be a
+# verified destination address in the Cloudflare account.
+[[send_email]]
+name = "EMAIL"
+allowed_sender_addresses = ["noreply@salesforcehub.us"]

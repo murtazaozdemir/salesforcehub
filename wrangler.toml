@@ -8,3 +8,9 @@ compatibility_date = "2026-10-04"
 [[kv_namespaces]]
 binding = "CONTACT"
 id = "9c5f0a6f0172453abed5b959840e1de3"
+
+# Emails each contact form message through the salesforcehub-mailer Worker (mailer/), since
+# Pages can't hold a send_email binding itself.
+[[services]]
+binding = "MAILER"
+service = "salesforcehub-mailer"

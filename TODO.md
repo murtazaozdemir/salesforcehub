@@ -36,8 +36,12 @@ which adds it to each page as it's served.
       `public/images/apps/` when one exists.
 - [x] Contact form connected (2026-10-04): KV namespace `salesforcehub-contact` bound as `CONTACT`
       in `wrangler.toml`.
-- [ ] Contact form: decide how you'll read the messages. Today they only land in KV (Cloudflare
-      dashboard → Storage & databases → KV → salesforcehub-contact); nothing notifies you.
+- [x] Contact form messages are emailed (2026-10-04) via the `salesforcehub-mailer` Worker; KV keeps
+      the record (dashboard → Storage & databases → KV → salesforcehub-contact).
+- [ ] **DMARC.** Enabling Cloudflare Email Sending (2026-10-04) added `_dmarc` = `v=DMARC1; p=reject;`.
+      Mail sent from ozdemir@salesforcehub.us through Google fails it: the root SPF lists only the old
+      Namecheap IPs, and there's no Google DKIM key. Set it to `p=none` now; later add
+      `include:_spf.google.com` to SPF and turn on DKIM in Google Admin, then tighten DMARC.
 - [x] Xhibit page at salesforcehub.us/xhibit (2026-10-04), copy taken from Xhibit's brochure.
 - [x] Xhibit renamed ExhibitProof and moved to its own site, exhibitproof.com (2026-10-04, xhibit session):
   /exhibitproof and /xhibit 301 there; the /xhibit page was removed. Prices are public on exhibitproof.com/pricing.
