@@ -34,7 +34,7 @@ const HEADER = (path) => `
 
 const FOOTER = (year) => `
     <div class="wrap footer-row">
-      <p>© ${year} Salesforce Hub LLC, Clifton, New Jersey</p>
+      <p>© ${year} Salesforce Hub LLC, New Jersey</p>
       <p class="legal">Salesforce Hub LLC is an independent software company. It is not affiliated with, endorsed by or sponsored by Salesforce, Inc. Salesforce is a trademark of Salesforce, Inc.</p>
     </div>
   `;
